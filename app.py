@@ -12,7 +12,7 @@ from resources.store import Store, StoreList
 
 db_url = os.environ.get('DATABASE_URL', 'sqlite:///data.db') # Cloud: postgres, local: sqlite
 if db_url.startswith('postgres://'):
-    db_url.replace('postgres://', 'postgresql://')
+    db_url = db_url.replace('postgres://', 'postgresql://')
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
